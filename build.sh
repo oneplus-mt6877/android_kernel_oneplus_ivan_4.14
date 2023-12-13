@@ -50,7 +50,7 @@ KERNEL_NAME="FussionKernel"
 
 DEFCONFIG="ivan_defconfig"
 
-AnyKernel="https://github.com/Hunter-commits/anykernel.git"
+AnyKernel="https://github.com/oneplus-mt6877/anykernel3.git"
 AnyKernelbranch="master"
 
 HOSST="Alone's Buildbot"
