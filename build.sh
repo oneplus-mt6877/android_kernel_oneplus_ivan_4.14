@@ -115,9 +115,7 @@ End=$(date +"%s")
 Diff=$(($End - $Start))
 }
 
-export IMG=export IMG="$PWD"/out/arch/arm64/boot/Image.gz
-export dtbo="$PWD"/out/arch/arm64/boot/dtbo.img
-export dtb="$PWD"/out/arch/arm64/boot/dtb.img
+export IMG="$PWD"/out/arch/arm64/boot/Image.gz-dtb
 
 # Let's start
 
@@ -158,8 +156,6 @@ KERVER=$(make kernelversion)
                 git clone "$AnyKernel" --single-branch -b "$AnyKernelbranch" zip
                 echo -e "$yellow << making kernel zip >> \n $white"
                 cp -r "$IMG" zip/
-		cp -r "$dtbo" zip/
-		cp -r "$dtb" zip/
                 cd zip
                 export ZIP="$KERNEL_NAME"-"$CODENAME"-"$DATE"
                 zip -r9 "$ZIP" * -x .git README.md LICENSE *placeholder
