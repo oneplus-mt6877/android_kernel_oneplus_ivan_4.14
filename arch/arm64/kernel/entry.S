@@ -986,11 +986,7 @@ el0_svc_naked:					// compat entry point
 	cmp     wscno, wsc_nr			// check upper syscall limit
 	b.hs	ni_sys
 	mask_nospec64 xscno, xsc_nr, x19	// enforce bounds for syscall number
-#ifdef CONFIG_OPLUS_ROOT_CHECK
-	adr x16, oplus_root_check
-#else
 	ldr	x16, [stbl, xscno, lsl #3]	// address in the syscall table
-#endif /* CONFIG_OPLUS_ROOT_CHECK */
 	blr	x16				// call sys_* routine
 	b	ret_fast_syscall
 ni_sys:
